@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Visualization</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+        }
+
+        nav {
+            background: #1f3c88;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 90%;
+            margin: 35px auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1f3c88;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            text-align: center;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .charts {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .chart-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .chart-card h2 {
+            color: #1f3c88;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .chart-card img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+        }
+
+        .chart-card p {
+            color: #666;
+            line-height: 1.5;
+            margin-top: 15px;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .back-btn {
+            display: block;
+            width: 160px;
+            margin: 30px auto;
+            padding: 12px;
+            background: #1f3c88;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 6px;
+        }
+
+        @media (max-width: 800px) {
+            .charts {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="/">Home</a>
+        <a href="/prediction">Prediction</a>
+        <a href="/visualization">Visualization</a>
+        <a href="/classification">Classification</a>
+        <a href="/preprocessing">Preprocessing</a>
+    </nav>
+
+
+    <div class="container">
+
+        <h1>Data Visualization</h1>
+
+        <p class="description">
+            Visual analysis of the Loan Approval Prediction dataset
+        </p>
+
+
+        <div class="charts">
+
+            <!-- Loan Approval Distribution -->
+            <div class="chart-card">
+                <h2>Loan Approval Distribution</h2>
+
+                <img src="{{ url_for('static', filename='images/loan_approval_distribution.png') }}">
+
+                <p>
+                    This graph shows the distribution of approved and
+                    non-approved loan applications.
+                </p>
+            </div>
+
+
+            <!-- Credit Score Distribution -->
+            <div class="chart-card">
+                <h2>Credit Score Distribution</h2>
+
+                <img src="{{ url_for('static', filename='images/credit_score_distribution.png') }}">
+
+                <p>
+                    This graph shows the distribution of credit scores
+                    among the applicants.
+                </p>
+            </div>
+
+
+            <!-- Annual Income Distribution -->
+            <div class="chart-card">
+                <h2>Annual Income Distribution</h2>
+
+                <img src="{{ url_for('static', filename='images/annual_income_distribution.png') }}">
+
+                <p>
+                    This graph represents the distribution of annual
+                    income of loan applicants.
+                </p>
+            </div>
+
+
+            <!-- Loan Amount Distribution -->
+            <div class="chart-card">
+                <h2>Loan Amount Distribution</h2>
+
+                <img src="{{ url_for('static', filename='images/loan_amount_distribution.png') }}">
+
+                <p>
+                    This graph shows the distribution of current
+                    loan amounts.
+                </p>
+            </div>
+
+
+            <!-- Approval vs Credit Score -->
+            <div class="chart-card">
+                <h2>Loan Approval vs Credit Score</h2>
+
+                <img src="{{ url_for('static', filename='images/approval_vs_credit_score.png') }}">
+
+                <p>
+                    This visualization shows the relationship between
+                    credit score and loan approval.
+                </p>
+            </div>
+
+
+            <!-- Confusion Matrix -->
+            <div class="chart-card">
+                <h2>Random Forest Confusion Matrix</h2>
+
+                <img src="{{ url_for('static', filename='images/confusion_matrix.png') }}">
+
+                <p>
+                    The confusion matrix shows the actual and predicted
+                    loan approval classifications made by the Random
+                    Forest model.
+                </p>
+            </div>
+
+
+            <!-- Feature Importance -->
+            <div class="chart-card full-width">
+                <h2>Random Forest Feature Importance</h2>
+
+                <img src="{{ url_for('static', filename='images/feature_importance.png') }}">
+
+                <p>
+                    This graph shows the relative importance of each
+                    feature used by the Random Forest model for
+                    loan approval prediction.
+                </p>
+            </div>
+
+
+            <!-- Model Accuracy Comparison -->
+            <div class="chart-card full-width">
+                <h2>Model Accuracy Comparison</h2>
+
+                <img src="{{ url_for('static', filename='images/model_accuracy_comparison.png') }}">
+
+                <p>
+                    This graph compares the accuracy of the different
+                    classification algorithms used in the project.
+                </p>
+            </div>
+
+        </div>
+
+
+        <a href="/" class="back-btn">Back to Home</a>
+
+    </div>
+
+</body>
+</html>

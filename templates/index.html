@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Loan Approval Prediction</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        .header {
+            background: #1f4e79;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .header h1 {
+            margin: 0 0 8px;
+            font-size: 32px;
+        }
+
+        .header p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 35px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #1f4e79;
+            margin-bottom: 25px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        input,
+        select {
+            padding: 11px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #1f4e79;
+        }
+
+        .button-area {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        button {
+            background: #1f4e79;
+            color: white;
+            border: none;
+            padding: 14px 45px;
+            border-radius: 7px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #163a5c;
+        }
+
+        .back-btn {
+            display: block;
+            width: 160px;
+            margin: 25px auto 0;
+            padding: 12px;
+            background: #1f4e79;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 7px;
+        }
+
+        .back-btn:hover {
+            background: #163a5c;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+
+        @media (max-width: 700px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Loan Approval Prediction</h1>
+        <p>Machine Learning Based Loan Approval System</p>
+    </div>
+
+    <div class="container">
+
+        <h2>Enter Applicant Details</h2>
+
+        <form action="/predict" method="POST">
+
+            <div class="form-grid">
+
+                <!-- Loan Status -->
+                <div class="form-group">
+                    <label>Loan Status</label>
+                    <select name="Loan Status" required>
+                        <option value="Fully Paid">Fully Paid</option>
+                        <option value="Charged Off">Charged Off</option>
+                    </select>
+                </div>
+
+                <!-- Current Loan Amount -->
+                <div class="form-group">
+                    <label>Current Loan Amount</label>
+                    <input type="number" name="Current Loan Amount"
+                           step="any" required>
+                </div>
+
+                <!-- Term -->
+                <div class="form-group">
+                    <label>Term</label>
+                    <select name="Term" required>
+                        <option value="Short Term">Short Term</option>
+                        <option value="Long Term">Long Term</option>
+                    </select>
+                </div>
+
+                <!-- Credit Score -->
+                <div class="form-group">
+                    <label>Credit Score</label>
+                    <input type="number" name="Credit Score"
+                           step="any" required>
+                </div>
+
+                <!-- Annual Income -->
+                <div class="form-group">
+                    <label>Annual Income</label>
+                    <input type="number" name="Annual Income"
+                           step="any" required>
+                </div>
+
+                <!-- Years in current job -->
+                <div class="form-group">
+    <label>Years in Current Job</label>
+
+    <select name="Years in current job" required>
+        <option value="10+ years">10+ years</option>
+        <option value="8 years">8 years</option>
+        <option value="7 years">7 years</option>
+        <option value="6 years">6 years</option>
+        <option value="5 years">5 years</option>
+        <option value="4 years">4 years</option>
+        <option value="3 years">3 years</option>
+        <option value="2 years">2 years</option>
+        <option value="1 year">1 year</option>
+        <option value="< 1 year">< 1 year</option>
+        <option value="n/a">n/a</option>
+    </select>
+</div>
+
+                <!-- Home Ownership -->
+                <div class="form-group">
+                    <label>Home Ownership</label>
+                    <select name="Home Ownership" required>
+                        <option value="Home Mortgage">Home Mortgage</option>
+                        <option value="Own Home">Own Home</option>
+                        <option value="Rent">Rent</option>
+                    </select>
+                </div>
+
+               <div class="form-group">
+    <label>Purpose</label>
+
+    <select name="Purpose" required>
+        <option value="Debt Consolidation">Debt Consolidation</option>
+        <option value="Home Improvements">Home Improvements</option>
+        <option value="Business Loan">Business Loan</option>
+        <option value="Buy a Car">Buy a Car</option>
+        <option value="Buy House">Buy House</option>
+        <option value="Medical">Medical</option>
+        <option value="Other">Other</option>
+    </select>
+</div>
+
+                <!-- Monthly Debt -->
+                <div class="form-group">
+                    <label>Monthly Debt</label>
+                    <input type="number" name="Monthly Debt"
+                           step="any" required>
+                </div>
+
+                <!-- Years of Credit History -->
+                <div class="form-group">
+                    <label>Years of Credit History</label>
+                    <input type="number" name="Years of Credit History"
+                           step="any" required>
+                </div>
+
+                <!-- Months since last delinquent -->
+                <div class="form-group">
+                    <label>Months Since Last Delinquent</label>
+                    <input type="number" name="Months since last delinquent"
+                           required>
+                </div>
+
+                <!-- Number of Open Accounts -->
+                <div class="form-group">
+                    <label>Number of Open Accounts</label>
+                    <input type="number" name="Number of Open Accounts"
+                           required>
+                </div>
+
+                <!-- Number of Credit Problems -->
+                <div class="form-group">
+                    <label>Number of Credit Problems</label>
+                    <input type="number" name="Number of Credit Problems"
+                           required>
+                </div>
+
+                <!-- Current Credit Balance -->
+                <div class="form-group">
+                    <label>Current Credit Balance</label>
+                    <input type="number" name="Current Credit Balance"
+                           step="any" required>
+                </div>
+
+                <!-- Maximum Open Credit -->
+                <div class="form-group">
+                    <label>Maximum Open Credit</label>
+                    <input type="number" name="Maximum Open Credit"
+                           step="any" required>
+                </div>
+
+                <!-- Bankruptcies -->
+                <div class="form-group">
+                    <label>Bankruptcies</label>
+                    <input type="number" name="Bankruptcies"
+                           required>
+                </div>
+
+                <!-- Tax Liens -->
+                <div class="form-group">
+                    <label>Tax Liens</label>
+                    <input type="number" name="Tax Liens"
+                           required>
+                </div>
+
+            </div>
+
+            <div class="button-area">
+                <button type="submit">Predict Loan Approval</button>
+            </div>
+
+        </form>
+
+        <!-- Back to Home -->
+        <a href="/" class="back-btn">Back to Home</a>
+
+    </div>
+
+    <div class="footer">
+        Loan Approval Prediction | Machine Learning Project
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prediction Result</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+        }
+
+        .header {
+            background: #1f4e79;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 700px;
+            margin: 60px auto;
+        }
+
+        .result-card {
+            background: white;
+            padding: 45px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.12);
+        }
+
+        .result-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .result-card h2 {
+            color: #1f4e79;
+            font-size: 30px;
+            margin: 15px 0;
+        }
+
+        .result-card p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .model-info {
+            background: #f4f7fb;
+            padding: 15px;
+            margin: 25px 0;
+            border-radius: 8px;
+            color: #444;
+        }
+
+        .button-group {
+            margin-top: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 8px;
+            background: #1f4e79;
+            color: white;
+            text-decoration: none;
+            border-radius: 7px;
+        }
+
+        .btn:hover {
+            background: #163a5c;
+        }
+
+        .footer {
+            text-align: center;
+            color: #666;
+            padding: 20px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="header">
+
+        <h1>Loan Approval Prediction</h1>
+
+    </div>
+
+
+    <div class="container">
+
+        <div class="result-card">
+
+            <div class="result-icon">
+                {% if prediction == "Loan Approved" %}
+                    🟢
+                {% else %}
+                    🔴
+                {% endif %}
+            </div>
+
+
+            <h2>{{ prediction }}</h2>
+
+
+            <p>
+                The machine learning model has completed the
+                loan approval prediction based on the
+                applicant details provided.
+            </p>
+
+
+           <div class="model-info">
+
+    <strong>Prediction Model:</strong>
+    Random Forest Classifier
+
+    <br><br>
+
+    <strong>Prediction Probability:</strong>
+    {{ probability }}%
+
+</div>
+
+
+            <div class="button-group">
+
+                <a href="/prediction" class="btn">
+                    Try Again
+                </a>
+
+                <a href="/" class="btn">
+                    Back to Home
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer">
+
+        Loan Approval Prediction |
+        Machine Learning Project
+
+    </div>
+
+</body>
+
+</html>

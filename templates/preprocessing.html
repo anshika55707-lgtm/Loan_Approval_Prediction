@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Preprocessing</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+        }
+
+        nav {
+            background: #1f3c88;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 90%;
+            margin: 35px auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1f3c88;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .card h2 {
+            color: #1f3c88;
+            margin: 5px 0;
+        }
+
+        .card p {
+            color: #666;
+        }
+
+        .section {
+            background: white;
+            padding: 25px;
+            margin-top: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .section h2 {
+            color: #1f3c88;
+            margin-bottom: 15px;
+        }
+
+        .step {
+            padding: 15px;
+            margin: 12px 0;
+            background: #f4f7fb;
+            border-left: 5px solid #1f3c88;
+            border-radius: 6px;
+        }
+
+        .step strong {
+            color: #1f3c88;
+        }
+
+        .back-btn {
+            display: block;
+            width: 160px;
+            margin: 30px auto;
+            padding: 12px;
+            background: #1f3c88;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 6px;
+        }
+
+        @media (max-width: 900px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                margin: 0 7px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/prediction">Prediction</a>
+        <a href="/visualization">Visualization</a>
+        <a href="/classification">Classification</a>
+        <a href="/preprocessing">Preprocessing</a>
+    </nav>
+
+    <div class="container">
+
+        <h1>Data Preprocessing</h1>
+
+        <p class="subtitle">
+            Steps performed to prepare the loan dataset for machine learning
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <h2>1,999</h2>
+                <p>Original Records</p>
+            </div>
+
+            <div class="card">
+                <h2>20</h2>
+                <p>Original Features</p>
+            </div>
+
+            <div class="card">
+                <h2>80%</h2>
+                <p>Training Data</p>
+            </div>
+
+            <div class="card">
+                <h2>20%</h2>
+                <p>Testing Data</p>
+            </div>
+
+        </div>
+
+        <div class="section">
+
+            <h2>Preprocessing Steps</h2>
+
+            <div class="step">
+                <strong>Step 1 — Load Dataset:</strong>
+                The loan approval dataset is loaded using Pandas.
+            </div>
+
+            <div class="step">
+                <strong>Step 2 — Remove Duplicate Records:</strong>
+                Duplicate rows are removed to improve the quality of the dataset.
+            </div>
+
+            <div class="step">
+                <strong>Step 3 — Remove ID Columns:</strong>
+                Loan ID and Customer ID are removed because they are identifiers
+                and are not useful for prediction.
+            </div>
+
+            <div class="step">
+                <strong>Step 4 — Encode Categorical Data:</strong>
+                Categorical columns are converted into numerical values using
+                Label Encoding.
+            </div>
+
+            <div class="step">
+                <strong>Step 5 — Separate Features and Target:</strong>
+                The input features are separated from the
+                <b>Loan_Approved</b> target variable.
+            </div>
+
+            <div class="step">
+                <strong>Step 6 — Train-Test Split:</strong>
+                The dataset is divided into 80% training data and
+                20% testing data.
+            </div>
+
+        </div>
+
+        <div class="section">
+
+            <h2>Machine Learning Preparation</h2>
+
+            <p>
+                After preprocessing, the cleaned numerical dataset is used
+                for training classification algorithms.
+            </p>
+
+            <p>
+                The project uses Logistic Regression, Decision Tree,
+                Random Forest, and K-Nearest Neighbors (KNN) for
+                loan approval classification.
+            </p>
+
+        </div>
+
+        <a href="/" class="back-btn">
+            Back to Home
+        </a>
+
+    </div>
+
+</body>
+</html>

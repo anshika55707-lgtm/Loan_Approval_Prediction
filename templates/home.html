@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Loan Approval Prediction</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        nav {
+            background: #1f4e79;
+            padding: 18px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 70px 20px;
+            background: white;
+        }
+
+        .hero h1 {
+            color: #1f4e79;
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #555;
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 30px;
+            background: #1f4e79;
+            color: white;
+            text-decoration: none;
+            border-radius: 7px;
+            font-size: 17px;
+        }
+
+        .button:hover {
+            background: #163a5c;
+        }
+
+        .section {
+            width: 90%;
+            max-width: 1100px;
+            margin: 45px auto;
+        }
+
+        .section h2 {
+            text-align: center;
+            color: #1f4e79;
+            margin-bottom: 30px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            padding: 28px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h3 {
+            color: #1f4e79;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            background: #1f4e79;
+            color: white;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 750px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                padding: 15px;
+            }
+
+            nav a {
+                margin-left: 10px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+
+        <div class="logo">
+            Loan Approval Prediction
+        </div>
+
+        <div>
+            <a href="/">Home</a>
+            <a href="/prediction">Prediction</a>
+            <a href="/visualization">Visualization</a>
+            <a href="/classification">Classification</a>
+            <a href="/preprocessing">Preprocessing</a>
+        </div>
+
+    </nav>
+
+
+    <section class="hero">
+
+        <h1>Loan Approval Prediction System</h1>
+
+        <p>
+            A machine learning based system that predicts whether
+            a loan application is likely to be approved using
+            applicant financial and credit information.
+        </p>
+
+        <a href="/prediction" class="button">
+            Start Prediction
+        </a>
+
+    </section>
+
+
+    <section class="section">
+
+        <h2>Project Modules</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Data Preprocessing</h3>
+                <p>
+                    Cleaning the dataset, removing unnecessary
+                    columns, encoding categorical data and
+                    preparing the data for machine learning.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Classification</h3>
+                <p>
+                    Four classification algorithms are used:
+                    Logistic Regression, Decision Tree,
+                    Random Forest and KNN.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Data Visualization</h3>
+                <p>
+                    Visual analysis of loan approval,
+                    credit score, income and other important
+                    dataset features.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="section">
+
+        <h2>Prediction System</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Applicant Details</h3>
+                <p>
+                    Enter financial and credit information
+                    of the applicant.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Machine Learning</h3>
+                <p>
+                    The Random Forest model processes the
+                    applicant information.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Prediction Result</h3>
+                <p>
+                    The system displays whether the loan is
+                    predicted as approved or not approved.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        Loan Approval Prediction | Machine Learning Mini Project
+    </footer>
+
+</body>
+</html>
